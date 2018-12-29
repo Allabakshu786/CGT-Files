@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+
+<Student>
+	<profile id="1">
+		<url> http://electus.blogsite.org/Test/</url>
+	</profile>
+
+	<editprofile id="1">
+		<FirstName>MASTHAN	</FirstName>
+		<LastName>ATTAR	</LastName>
+
+	</editprofile>
+
+
+	<changepassword id="1">
+		<Cpassword>MASTHAN	</Cpassword>
+		<Npassword>ATTAR	</Npassword>
+		<Rpassword>ATTAR	</Rpassword>
+
+	</changepassword>
+
+</Student>
+
+
+
+<Admin>
+	<contact id="1">
+		<mobile>9494830183	</mobile>
+		<email>allabakshu183@gmail.com	</email>
+		<address>PILERU	</address>
+
+	</contact>
+</Admin>
+
+
+
+ 
+  
