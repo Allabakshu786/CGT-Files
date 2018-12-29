@@ -4,18 +4,18 @@ package testSuites; // Current Package
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import com.sun.xml.internal.ws.api.server.Container;
 // -:--:--:--:- Importing Extent Report class -:--:--:--:-
 
 import com.relevantcodes.extentreports.ExtentReports;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
-import com.sun.xml.internal.ws.api.streaming.XMLStreamReaderFactory.Default;
+
 
 //-:--:--:--:- Importing Unit Testing class -:--:--:--:-
 
-//import org.testng.annotations.Test;
-import org.junit.Test;
+import org.testng.annotations.Test;
+//import org.junit.Test;
 
 import org.junit.experimental.categories.Category;
 
@@ -53,9 +53,7 @@ public class TestSuites {
 
 	}
 
-
-
-	@Test
+	//@Test
 	public void runUserChoice() {
 		if (readprop.readValue("testingType").equalsIgnoreCase("SMOKE")) {
 			smokeSuite();
@@ -66,10 +64,9 @@ public class TestSuites {
 		}
 
 	}
-	
-	@Test
-	public void unitDataDrivenTest()
-	{
+
+	//@Test
+	public void unitDataDrivenTest() {
 		tc.dataDrivenTest();
 	}
 
@@ -102,6 +99,24 @@ public class TestSuites {
 		tc.userLogin();
 
 		System.out.println(" End ts: smokeSuite");
+	}
+
+	@Test
+	public void uniteSuite() {
+		// TODO Auto-generated method stub
+		System.out.println(" Start ts: uniteSuite");
+
+		tc.fileupload();
+		System.out.println(" End ts: uniteSuite");
+	}
+	
+	@Test
+	public void uniteSuite2() {
+		// TODO Auto-generated method stub
+		System.out.println(" Start ts: uniteSuite2");
+
+		tc.alert();
+		System.out.println(" End ts: uniteSuite2");
 	}
 
 	/*

@@ -11,6 +11,8 @@ import generalUtilities.BrowserSetup;
 import generalUtilities.ReadProperties;
 import generalUtilities.ReadXL;
 import generalUtilities.Readxlsx;
+import pageObjects.Alerts;
+import pageObjects.FileUpload;
 import pageObjects.Login;
 
 import pageObjects.Register;
@@ -28,6 +30,8 @@ public class TestCases {
 	Snippet snip;
 	ReadXL readxl;
 	Readxlsx readxlsx;
+	FileUpload fileup;
+	Alerts alert;
 	String env;
 	String xlfile = "DataDriven";
 	String sheetName = "DataDriven";
@@ -43,6 +47,8 @@ public class TestCases {
 		login = new Login(driver);
 		reg = new Register(driver);
 		snip = new Snippet(driver);
+		fileup = new FileUpload(driver);
+		alert = new Alerts(driver);
 
 		env = readprop.readValue("DataDriven");
 
@@ -83,10 +89,11 @@ public class TestCases {
 			welc.launchApplication();
 			System.out.println("loop count" + i);
 			System.out.println(readxlsx.getRowCount(sheetName));
-			System.out.println((readxlsx.getCellData(sheetName, i, 0)+readxlsx.getCellData(sheetName, i, 1)));
+			System.out.println((readxlsx.getCellData(sheetName, i, 0) + readxlsx.getCellData(sheetName, i, 1)));
 			// System.out.println(readxl.getCellData(xlfile, 0,
 			// i)+readxl.getCellData(xlfile, 1, i));
-			login.loginToApplicationDataDriven(readxlsx.getCellData(sheetName, i, 0), readxlsx.getCellData(sheetName, i, 1));
+			login.loginToApplicationDataDriven(readxlsx.getCellData(sheetName, i, 0),
+					readxlsx.getCellData(sheetName, i, 1));
 			login.logoutFromApplication();
 			welc.closeApplication();
 
@@ -94,6 +101,38 @@ public class TestCases {
 
 	}
 
+	/*
+	 *******************************
+	       File Upload TestCase
+	  ********************************
+	 ***/
+	public boolean fileupload2() {
+		System.out.println(" Start tc: fileupload");
+		welc.launchApplication();
+		fileup.fileUploadAutoIT();
+		welc.closeApplication();
+		System.out.println(" end tc: fileupload");
+		return true;
+	}
+
+	public boolean fileupload() {
+		System.out.println(" Start tc: fileupload");
+		welc.launchApplication();
+		fileup.fileUpload();
+		welc.closeApplication();
+		System.out.println(" end tc: fileupload");
+		return true;
+	}
+
+	/*
+	 * ********************************** Alert TestCase	 * ********************************	 ***/
+
+	public boolean alert() {
+		System.out.println(" Start tc: Alert TestCase");
+		alert.alertHandling();
+		System.out.println(" end tc: Alert TestCase");
+		return true;
+	}
 	/*
 	 * @Test public void working() { System.out.println("Junit is working"); }
 	 */

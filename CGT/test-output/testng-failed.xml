@@ -5,7 +5,7 @@
     <classes>
       <class name="testSuites.TestSuites">
         <methods>
-          <include name="unitDataDrivenTest"/>
+          <include name="uniteSuite2"/>
         </methods>
       </class> <!-- testSuites.TestSuites -->
     </classes>

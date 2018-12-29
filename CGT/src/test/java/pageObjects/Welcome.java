@@ -4,6 +4,7 @@ package pageObjects;
 import org.openqa.selenium.WebDriver;
 //import org.openqa.selenium.chrome.ChromeDriver;
 
+import generalUtilities.HoldOn;
 import generalUtilities.ReadProperties;
 import generalUtilities.ReadXL;
 
@@ -12,12 +13,14 @@ public class Welcome {
 	WebDriver driver;
 	ReadProperties readprop;
 	ReadXL readxl;
+	HoldOn wait;
 
 	public Welcome(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 		this.driver = driver;
 		readprop = new ReadProperties("testData/TestData.properties");
 		readxl = new ReadXL("testData/DataXL.xls");
+		wait = new HoldOn();
 	}
 	
 //	@BeforeAll
@@ -34,7 +37,10 @@ public class Welcome {
 		// "C:\\Java\\Workspace\\JarFiles\\chromedriver\\chromedriver.exe");
 		// driver = new ChromeDriver();
 		// driver.get("https://www.irctc.co.in/nget/");
-		driver.get(readprop.readValue("URL"));
+		//driver.get(readprop.readValue("URL"));
+		wait.implicitlyWait(driver, 5);
+		
+		driver.get(readprop.readValue("MonsterURL"));
 	//	driver.get(readxl.getCellData("URL", 0, 0));
 		System.out.println("End Welcome : launchApplication");
 	}
